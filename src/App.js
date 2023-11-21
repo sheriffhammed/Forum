@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router , Route, Routes } from 'react-router-dom';
+import Login from './features/login/components/Login';
+import HomePage from './features/components/HomePage';
+import SignUpForm from './features/users/components/SignUpForm';
+import ForgotPassword from './features/users/components/ForgotPassword';
+import MyPosts from './features/posts/components/MyPosts';
+import Header from './features/components/Header';
+import PostLists from './features/posts/components/postLists';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        
+        <Route index element={<Login />} />
+          <Route  path="/" element={<Header />} >
+            <Route index element={<HomePage />} />
+            <Route path="homepage" element={<HomePage />} />
+            <Route path="mypost/:userId" element={<MyPosts />} />
+                      
+          </Route>
+        <Route path="login" element={<Login />} />
+        <Route path="forgotpassword" element={<ForgotPassword />} />
+        <Route path="signup" element={<SignUpForm />} />
+        <Route path="*" element={"Page Not Found"} />
+      </Routes>
+    </Router> 
   );
 }
 
