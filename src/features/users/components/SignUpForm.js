@@ -192,7 +192,7 @@ const onSubmit = (data, e) => {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-              <NavLink to="/login"> 
+              <NavLink to="/"> 
                   Already have an account? Sign in
               </NavLink>
               </Grid>

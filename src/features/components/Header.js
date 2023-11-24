@@ -139,7 +139,8 @@ export default function Header() {
         userId = {userId}
       /> }
       {!auth &&
-        navigate('../login')
+        //navigate('../login')
+        navigate('../')
       }
     </Box>
     <Outlet />         
